@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { BsCalculator, BsFillCreditCardFill } from "react-icons/bs";
 import ExpenseList from "./ExpenseList";
+import ExpenseFilter from "./ExpenseFilter";
 
 function App() {
+
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [expenseList, setExpenseList] = useState([
     {
       id: 1,
@@ -28,28 +31,42 @@ function App() {
       amount: 750,
       category: "Rent",
     },
+    {
+      id: 5,
+      description: "Weekend in Makounta",
+      amount: 170,
+      category: "Entertaiment",
+    },
   ]);
 
   const handleDelete = (id: number) => {
     setExpenseList(expenseList.filter((item) => item.id !== id));
   };
 
+  const handleFiltering = (category: string) => {
+    console.log(category)
+    setSelectedCategory(category);
+  }
+
+  const filteredExpenseList = selectedCategory ? expenseList.filter((item) => item.category === selectedCategory) : expenseList;
+
   return (
     <>
       <div className="p-4 bg-light text-center">
         <h2 className="pb-5">
-          <BsCalculator color="green" size={40} />
-          Manage your expenses <BsFillCreditCardFill
+          <BsCalculator color="green" size={35} />
+          Manage your Expenses <BsFillCreditCardFill
             color="orange"
             size={30}
-          />{" "}
-          efficiently
+          /> Efficiently
+           
         </h2>
 
         <div className="row row-cols-1 row-cols-lg-2 justify-content-around gy-3">
-          <div className="col">One of two columns</div>
+          <div className="col">Form Section</div>
           <div className="col">
-            <ExpenseList data={expenseList} onDelete={handleDelete} />
+            <ExpenseFilter onSelect={handleFiltering}/>
+            <ExpenseList data={filteredExpenseList} onDelete={handleDelete} />
           </div>
         </div>
       </div>
