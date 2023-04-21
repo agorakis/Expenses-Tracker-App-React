@@ -44,7 +44,6 @@ function App() {
   };
 
   const handleFiltering = (category: string) => {
-    console.log(category)
     setSelectedCategory(category);
   }
 

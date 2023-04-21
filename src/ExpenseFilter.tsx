@@ -7,7 +7,7 @@ const ExpenseFilter = ({onSelect}:ExpenseFilterProps) => {
     return ( 
     
  <select onChange={(e) => onSelect(e.target.value)} className="form-select form-select-md mb-2" aria-label="Default select example">
-    <option value="" selected>Filter by category</option>
+    <option value="" selected>All Categories</option>
     <option value="Rent">Rent</option>
     <option value="Utilities">Utilities</option>
     <option value="Super Market">Super Market</option>
