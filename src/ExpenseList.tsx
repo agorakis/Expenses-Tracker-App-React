@@ -32,23 +32,27 @@ const ExpenseList = ({ data, onDelete }: ExpenseListProps) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((item) => (
-          <tr key={item.id}>
-            <td>{item.description}</td>
-            <td>{item.amount}€</td>
-            <td>{item.category}</td>
-            <td>
-              <button
-                className="btn btn-danger"
-                onClick={() => onDelete(item.id)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))}
+        {data.length > 0 ? (
+          data.map((item) => (
+            <tr key={item.id}>
+              <td>{item.description}</td>
+              <td>{item.amount}€</td>
+              <td>{item.category}</td>
+              <td>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => onDelete(item.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <p className="my-5">There are no expenses in the list yet.</p>
+        )}
 
-        <tr>
+        <tr className="table-primary">
           <td className="fw-bold">Total</td>
           <td className="fw-bold">{totalAmount(data)}€</td>
           <td></td>

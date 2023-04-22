@@ -16,30 +16,30 @@ function App() {
     {
       id: 2,
       description: "Meat,Vegetables,Milk",
-      amount: 27,
+      amount: 35,
       category: "Super Market",
     },
     {
       id: 3,
-      description: "Electricity Bill",
-      amount: 71,
+      description: "Electricity Bill (April)",
+      amount: 70,
       category: "Utilities",
     },
     {
       id: 4,
-      description: "Appt Rent for January",
+      description: "Appt Rent (April)",
       amount: 750,
       category: "Rent",
     },
     {
       id: 5,
-      description: "Weekend in Makounta",
-      amount: 170,
+      description: "Restaurant",
+      amount: 40,
       category: "Entertaiment",
     },
   ]);
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (data: ExpenseFormData) => {
     setExpenseList([...expenseList, { id: expenseList.length + 1, ...data }]);
     console.log(expenseList);
   };
@@ -75,7 +75,7 @@ function App() {
         </div>
       </div>
       <div className="ps-2 bg-secondary text-warning">
-        Designed by <span className="fw-bold fst-italic">@antGor</span>
+        Coded by <span className="fw-bold fst-italic">@antGor</span>
       </div>
     </>
   );

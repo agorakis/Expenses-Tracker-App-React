@@ -6,16 +6,16 @@ import { categories } from "./categories";
 const schema = z.object({
   description: z
     .string()
-    .min(3, { message: "Decription should be minimum 3 characters" })
-    .max(50, { message: "Decription should be maximum 50 characters" }),
+    .min(3, { message: "Decription should be minimum 3 characters." })
+    .max(50, { message: "Decription should be maximum 50 characters." }),
   amount: z
-    .number({ invalid_type_error: "Amount is required" })
-    .min(1, { message: "Amount should be minimum 1 Euro" })
-    .max(100_000, { message: "Amount should be maximum 100.000 Euro" }),
+    .number({ invalid_type_error: "Amount is required." })
+    .min(1, { message: "Amount should be minimum 1€." })
+    .max(100_000, { message: "Amount should be maximum 100.000€." }),
   category: z.enum(categories, {
     errorMap: () => ({
       message:
-        "Category should be one of Rent | Utilities | Super Market | Vehicle Expenses | Entertaiment",
+        "Category should be one of Rent | Utilities | Super Market | Vehicle Expenses | Entertaiment.",
     }),
   }),
 });
