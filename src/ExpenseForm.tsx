@@ -30,7 +30,7 @@ const ExpenseForm = ({ onSubmit }: ExpenseFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
   } = useForm<ExpenseFormData>({
     resolver: zodResolver(schema),
@@ -103,7 +103,7 @@ const ExpenseForm = ({ onSubmit }: ExpenseFormProps) => {
         </div>
       </div>
       <div className="d-grid my-5">
-        <button type="submit" className="btn btn-primary">
+        <button disabled={!isValid} type="submit" className="btn btn-primary">
           Add Expense
         </button>
       </div>
