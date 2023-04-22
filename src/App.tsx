@@ -1,5 +1,6 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { BsCalculator } from "react-icons/bs";
+import { ExpenseFormData } from "./ExpenseForm";
 import ExpenseList from "./ExpenseList";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpenseForm from "./ExpenseForm";

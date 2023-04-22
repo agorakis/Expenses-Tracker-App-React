@@ -14,13 +14,12 @@ const schema = z.object({
     .max(100_000, { message: "Amount should be maximum 100.000€." }),
   category: z.enum(categories, {
     errorMap: () => ({
-      message:
-        "Category should be one of Rent | Utilities | Super Market | Vehicle Expenses | Entertaiment.",
+      message: "Category is required.",
     }),
   }),
 });
 
-type ExpenseFormData = z.infer<typeof schema>;
+export type ExpenseFormData = z.infer<typeof schema>;
 
 interface ExpenseFormProps {
   onSubmit: (data: ExpenseFormData) => void;
@@ -103,7 +102,10 @@ const ExpenseForm = ({ onSubmit }: ExpenseFormProps) => {
         </div>
       </div>
       <div className="d-grid my-5">
-        <button disabled={!isValid} type="submit" className="btn btn-primary">
+        <button
+          /* disabled={!isValid}  */ type="submit"
+          className="btn btn-primary"
+        >
           Add Expense
         </button>
       </div>
