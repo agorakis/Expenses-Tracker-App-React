@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { BsCalculator, BsFillCreditCardFill } from "react-icons/bs";
+import { FormEvent, useState } from "react";
+import { BsCalculator } from "react-icons/bs";
 import ExpenseList from "./ExpenseList";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpenseForm from "./ExpenseForm";
 
 function App() {
-
   const [selectedCategory, setSelectedCategory] = useState("");
   const [expenseList, setExpenseList] = useState([
     {
@@ -39,32 +39,37 @@ function App() {
     },
   ]);
 
+  const handleSubmit = (data) => {
+    setExpenseList([...expenseList, { id: expenseList.length + 1, ...data }]);
+    console.log(expenseList);
+  };
+
   const handleDelete = (id: number) => {
     setExpenseList(expenseList.filter((item) => item.id !== id));
   };
 
   const handleFiltering = (category: string) => {
     setSelectedCategory(category);
-  }
+  };
 
-  const filteredExpenseList = selectedCategory ? expenseList.filter((item) => item.category === selectedCategory) : expenseList;
+  const filteredExpenseList = selectedCategory
+    ? expenseList.filter((item) => item.category === selectedCategory)
+    : expenseList;
 
   return (
     <>
-      <div className="p-4 bg-light text-center">
-        <h2 className="pb-5">
-          <BsCalculator color="green" size={35} />
-          Manage your Expenses <BsFillCreditCardFill
-            color="orange"
-            size={30}
-          /> Efficiently
-           
+      <div className="py-4 px-5 bg-light">
+        <h2 className="pb-5 text-center">
+          <BsCalculator color="green" size={30} />
+          Manage your Expenses Efficiently
         </h2>
 
-        <div className="row row-cols-1 row-cols-lg-2 justify-content-around gy-3">
-          <div className="col">Form Section</div>
-          <div className="col">
-            <ExpenseFilter onSelect={handleFiltering}/>
+        <div className="row row-cols-1 row-cols-xl-2 gy-3 gx-5">
+          <div className="col-xl-5">
+            <ExpenseForm onSubmit={handleSubmit} />
+          </div>
+          <div className="col-xl-7 text-center">
+            <ExpenseFilter onSelect={handleFiltering} />
             <ExpenseList data={filteredExpenseList} onDelete={handleDelete} />
           </div>
         </div>
