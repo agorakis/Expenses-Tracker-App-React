@@ -22,7 +22,7 @@ const ExpenseList = ({ data, onDelete }: ExpenseListProps) => {
   };
 
   return (
-    <table className="table ">
+    <table className="table">
       <thead>
         <tr>
           <th scope="col">Description</th>
