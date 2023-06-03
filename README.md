@@ -4,6 +4,6 @@ Scope of this project was to get familiar with React functional components, type
 
 This project was part of a Mosh Hamedani's React + Typescript course "React 18 for Beginners".
 
-You can clone this project in your machine to install the dependencies and to run it locally with this command "npm run dev". Be sure that you have installed Nodejs and ViteJs.
+This project is live here: https://expenses-tracker-app-xi.vercel.app/
 
 \*\*Any backend hasn't been used to store data yet. The state of the app is stored locally in the browser.
