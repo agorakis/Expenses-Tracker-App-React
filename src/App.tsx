@@ -59,7 +59,7 @@ function App() {
 
   return (
     <>
-      <div className="py-4 px-5 bg-light">
+      <div className="py-4 px-4 bg-light">
         <h2 className="pb-5 text-center">
           <BsCalculator color="green" size={30} />
           Manage your Expenses Efficiently
